@@ -1,0 +1,11 @@
+---
+- name: Install wget
+  apt:
+    name: wget
+    state: present
+
+- name: Install openjdk
+  apt:
+    name: default-jdk
+    state: present
+ sonar_install_directory: /opt/sonarqube
