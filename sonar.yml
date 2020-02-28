@@ -26,19 +26,19 @@
     user:
       name: sonar
       comment: System user for running SonarQube
-    
-  - name: Create sonar database
-    become_user: postgres
-    postgresql_db:
-      name: sonar
       
   - name: Create sonar user in databse
     become_user: postgres
     postgresql_user:
-      db: sonar
       name: sonar
       password: sonar
       role_attr_flags: CREATEDB,NOSUPERUSER
+      
+  - name: Create sonar database
+    become_user: postgres
+    postgresql_db:
+      name: sonar
+      owner: sonar
       
   - name: Create sonar directory
     file:
