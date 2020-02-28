@@ -8,7 +8,12 @@
    - name: Add key
      shell:
       cmd: wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | apt-key add -
-   - name: Install psql
+   - name: Install postgresql
      apt: 
-      name: postgresql postgresql-contrib
+      name: postgresql
       state: present
+    
+   - name: Install psql-contrib
+    apt: 
+     name: postgresql-contrib
+     state: present
