@@ -22,12 +22,6 @@
     user:
       name: sonar
       comment: System user for running SonarQube
-  - name: Create sonar user database
-    become: yes
-    become_user: postgres
-    postgresql_user:
-      name: "sonar"
-      password: "sonar"
     
   - name: Create sonar database
     become: yes
