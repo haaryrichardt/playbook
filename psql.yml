@@ -14,6 +14,6 @@
       state: present
     
    - name: Install psql-contrib
-    apt: 
-     name: postgresql-contrib
-     state: present
+     apt: 
+      name: postgresql-contrib
+      state: present
