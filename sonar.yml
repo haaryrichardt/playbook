@@ -89,4 +89,18 @@
   - name: start sonarqube
     shell:
      cmd: /opt/sonar/bin/linux-x86-64/sonar.sh start
+     
+  - name: Enable Firewall
+    ufw:
+     state: enabled
+    
+  - name: Allow Port 8080
+    ufw:
+     rule: allow
+     port: '9000'
+    
+  - name: Allow OpenSSH
+    ufw:
+     rule: allow
+     name: OpenSSH
   
