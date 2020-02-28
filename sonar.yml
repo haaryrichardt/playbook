@@ -23,27 +23,38 @@
       state: present
       
   - name: Create the sonar user for running the SonarQube services
-    become: yes
     user:
       name: sonar
       comment: System user for running SonarQube
     
   - name: Create sonar database
-    become: yes
     become_user: postgres
     postgresql_db:
       name: sonar
       
+   - name: Create sonar user in databse
+     postgresql_user:
+      db: sonar
+      name: sonar
+      password: sonar
+      
   - name: Create sonar directory
-    become: yes
     file:
       path: "/opt/sonar"
       state: directory
 
   - name: Extract SonarQube
-    become: yes
     unarchive:
       src: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.0.zip
       dest: /opt/sonar/
       remote_src: yes
+      
+  - name: Link this version of sonarqube as the server SonarQube version
+    file:
+      src: "/opt/sonar/sonarqube-8.0"
+      dest: "/opt/sonarqube"
+      state: link
+      owner: sonar
+      
+    
 
