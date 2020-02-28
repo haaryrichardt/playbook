@@ -39,6 +39,6 @@
     become: yes
     unarchive:
       src: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.0.zip
-      dest: "/opt/sonar/"
-      copy: no
-      owner: sonar
+      dest: /opt/sonar/
+      remote_src: yes
+
