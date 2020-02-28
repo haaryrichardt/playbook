@@ -88,7 +88,7 @@
 
   - name: start sonarqube
     shell:
-     cmd: /opt/sonar/bin/linux-x86-64/sonar.sh start
+     cmd: /opt/sonarqube/bin/linux-x86-64/sonar.sh start
      
   - name: Enable Firewall
     ufw:
