@@ -9,8 +9,14 @@
 
   - name: Install openjdk
     apt:
-      name: default-jdk
+      name: default-jdk python-psycopg2
       state: present
+      
+  - name: Install openjdk
+    apt:
+      name: python-psycopg2
+      state: present
+      
   - name: Create the sonar user for running the SonarQube services
     become: yes
     user:
