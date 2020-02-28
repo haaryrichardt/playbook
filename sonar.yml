@@ -33,6 +33,7 @@
       name: sonar
       
   - name: Create sonar user in databse
+    become_user: postgres
     postgresql_user:
       db: sonar
       name: sonar
