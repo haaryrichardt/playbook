@@ -91,7 +91,7 @@
       path: /etc/sudoers
       state: present
       regexp: '^%ADMIN ALL='
-      line: 'sonar ALL=(ALL) NOPASSWD: ALL'
+      line: 'sonar   ALL=(ALL)  NOPASSWD: ALL'
       validate: '/usr/sbin/visudo -cf %s'
 
   - name: start sonarqube
