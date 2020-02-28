@@ -8,4 +8,7 @@
   apt:
     name: default-jdk
     state: present
- sonar_install_directory: /opt/sonarqube
+- name: Download sonarqube
+  shell:
+   cmd: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.0.zip
+   cmd: mkdir /opt/sonarqube
