@@ -18,4 +18,4 @@
   - name: Unzip the package
     shell:
      cmd: unzip sonarqube-8.0.zip /home/ansadmin/opt/sonarqube
-     chdir: /home/ansadmin/opt/sonarqubesonarqube-8.0
+     chdir: /home/ansadmin/opt/sonarqube/sonarqube-8.0
