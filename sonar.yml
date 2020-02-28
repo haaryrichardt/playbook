@@ -85,6 +85,14 @@
       regexp: "RUN_AS_USER=sonar"
       insertafter: "#RUN_AS_USER="
       line: "RUN_AS_USER=sonar"
+      
+  - name: Adding user to visudo
+    lineinfile:
+      path: /etc/sudoers
+      state: present
+      regexp: '^%ADMIN ALL='
+      line: 'sonar ALL=(ALL) NOPASSWD: ALL'
+      validate: '/usr/sbin/visudo -cf %s'
 
   - name: start sonarqube
     shell:
