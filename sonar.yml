@@ -1,14 +1,17 @@
 ---
-- name: Install wget
-  apt:
-    name: wget
-    state: present
+- hosts: sonar
+  become: true
+  tasks:
+  - name: Install wget
+    apt:
+      name: wget
+      state: present
 
-- name: Install openjdk
-  apt:
-    name: default-jdk
-    state: present
-- name: Download sonarqube
-  shell:
-   cmd: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.0.zip
-   cmd: mkdir /opt/sonarqube
+  - name: Install openjdk
+    apt:
+      name: default-jdk
+      state: present
+  - name: Download sonarqube
+    shell:
+     cmd: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.0.zip
+     cmd: mkdir /opt/sonarqube
