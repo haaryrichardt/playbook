@@ -13,5 +13,5 @@
       state: present
   - name: Download sonarqube
     shell:
+     chdir: /opt/sonarqube
      cmd: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.0.zip
-     cmd: mkdir /opt/sonarqube
