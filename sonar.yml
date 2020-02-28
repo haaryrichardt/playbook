@@ -27,8 +27,8 @@
     become: yes
     become_user: postgres
     postgresql_db:
-      name: "sonar"
-      owner: "sonar"
+      name: sonar
+      owner: sonar
       
   - name: Download sonarqube
     shell:
