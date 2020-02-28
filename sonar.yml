@@ -29,12 +29,18 @@
     postgresql_db:
       name: sonar
       
+  - name: Create sonar directory
+    become: yes
+    file:
+      path: "/opt/sonar"
+      state: directory
+      
   - name: Download sonarqube
     shell:
      chdir: /opt/sonar
      cmd: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.0.zip
      
-  - name: Create sonar directory
+  - name: Create sonarqube-8.0 directory
     become: yes
     file:
       path: "/opt/sonar/sonarqube-8.0"
