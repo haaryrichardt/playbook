@@ -31,7 +31,7 @@
       
   - name: Download sonarqube
     shell:
-     chdir: /opt/sonarqube
+     chdir: /opt/sonar
      cmd: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.0.zip
      
   - name: Create sonar directory
@@ -44,7 +44,7 @@
   - name: Extract SonarQube
     become: yes
     unarchive:
-      src: "/opt/sonarqube-8.0.zip"
+      src: "/opt/sonar/sonarqube-8.0.zip"
       dest: "/opt/sonar/"
       copy: no
       owner: sonar
