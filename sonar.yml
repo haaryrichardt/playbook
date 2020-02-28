@@ -32,8 +32,8 @@
     postgresql_db:
       name: sonar
       
-   - name: Create sonar user in databse
-     postgresql_user:
+  - name: Create sonar user in databse
+    postgresql_user:
       db: sonar
       name: sonar
       password: sonar
