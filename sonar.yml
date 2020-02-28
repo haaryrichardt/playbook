@@ -49,7 +49,7 @@
 
   - name: Extract SonarQube
     become: yes
-    unarchive:
+    unzip:
       src: "/opt/sonar/sonarqube-8.0.zip"
       dest: "/opt/sonar/"
       copy: no
