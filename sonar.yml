@@ -14,7 +14,7 @@
 
   - name: Install openjdk
     apt:
-      name: default-jdk
+      name: openjdk-8-jdk
       state: present
       
   - name: Install python-psycopg2
