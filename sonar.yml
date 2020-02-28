@@ -37,6 +37,7 @@
       db: sonar
       name: sonar
       password: sonar
+      role_attr_flags: CREATEDB,NOSUPERUSER
       
   - name: Create sonar directory
     file:
