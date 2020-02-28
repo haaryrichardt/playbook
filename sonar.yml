@@ -11,11 +11,41 @@
     apt:
       name: default-jdk
       state: present
+  - name: Create the sonar user for running the SonarQube services
+    become: yes
+    user:
+      name: sonar
+      comment: System user for running SonarQube
+  - name: Create sonar user database
+    become: yes
+    become_user: postgres
+    postgresql_user:
+      name: "sonar"
+      password: "sonar"
+    
+  - name: Create sonar database
+    become: yes
+    become_user: postgres
+    postgresql_db:
+      name: "sonar"
+      owner: "sonar"
+      
   - name: Download sonarqube
     shell:
      chdir: /opt/sonarqube
      cmd: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.0.zip
-  - name: Unzip the package
-    shell:
-     cmd: unzip sonarqube-8.0.zip /home/ansadmin/opt/sonarqube
-     chdir: /home/ansadmin/opt/sonarqube/sonarqube-8.0
+     
+  - name: Create sonar directory
+    become: yes
+    file:
+      path: "/opt/sonar/sonarqube-8.0"
+      state: directory
+      owner: sonar
+
+  - name: Extract SonarQube
+    become: yes
+    unarchive:
+      src: "/opt/sonarqube-8.0.zip"
+      dest: "/opt/sonar/"
+      copy: no
+      owner: sonar
