@@ -12,7 +12,7 @@
       name: default-jdk
       state: present
       
-  - name: Install openjdk
+  - name: Install python-psycopg2
     apt:
       name: python-psycopg2
       state: present
