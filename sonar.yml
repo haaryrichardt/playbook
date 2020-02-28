@@ -9,7 +9,7 @@
 
   - name: Install openjdk
     apt:
-      name: default-jdk python-psycopg2
+      name: default-jdk
       state: present
       
   - name: Install openjdk
