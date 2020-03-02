@@ -23,11 +23,11 @@
       state: present
   
   - postgresql_user:
-    db: postgres
-    name: postgres
-    password: postgres
-    priv: "CONNECT/products:ALL"
-    expire: infinity
+      db: postgres
+      name: postgres
+      password: postgres
+      priv: "CONNECT/products:ALL"
+      expire: infinity
    
   - name: Create sonar user in databse
     become_user: postgres
