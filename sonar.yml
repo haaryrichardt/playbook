@@ -22,8 +22,7 @@
       name: python-psycopg2
       state: present
   
-  - name: Make password for postgreSQL user
-    postgresql_user:
+  - postgresql_user:
     db: postgres
     name: postgres
     password: postgres
