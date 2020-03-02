@@ -21,19 +21,22 @@
     apt:
       name: python-psycopg2
       state: present
-      
-  - name: Create the sonar user for running the SonarQube services
-    user:
-      name: sonar
-      comment: System user for running SonarQube
-      
+  
+  - name: Make password for postgreSQL user
+    postgresql_user:
+    db: postgres
+    name: postgres
+    password: postgres
+    priv: "CONNECT/products:ALL"
+    expire: infinity
+   
   - name: Create sonar user in databse
     become_user: postgres
     postgresql_user:
       name: sonar
       password: sonar
       role_attr_flags: CREATEDB,NOSUPERUSER
-      
+     
   - name: Create sonar database
     become_user: postgres
     postgresql_db:
